@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محل عصمت الربيع الخيام</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: #0a0805;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Amiri', serif;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(45deg, rgba(201,169,110,0.03) 0px, rgba(201,169,110,0.03) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(-45deg, rgba(201,169,110,0.03) 0px, rgba(201,169,110,0.03) 1px, transparent 1px, transparent 40px);
+    pointer-events: none;
+  }
+  .card {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .top-band {
+    height: 5px;
+    background: linear-gradient(90deg, #5a3a10, #C9A96E, #f0d090, #C9A96E, #5a3a10);
+    border-radius: 4px 4px 0 0;
+  }
+  .card-inner {
+    background: linear-gradient(160deg, #130f09 0%, #0d0b08 60%, #1a1208 100%);
+    border: 1px solid rgba(201,169,110,0.25);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    padding: 32px 28px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-inner::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 200px;
+    background: radial-gradient(ellipse, rgba(201,169,110,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .corners { position: absolute; inset: 12px; pointer-events: none; }
+  .corners::before, .corners::after, .corners span::before, .corners span::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    border-color: rgba(201,169,110,0.4);
+    border-style: solid;
+  }
+  .corners::before { top:0; left:0; border-width: 1px 0 0 1px; }
+  .corners::after  { top:0; right:0; border-width: 1px 1px 0 0; }
+  .corners span::before { bottom:0; left:0; border-width: 0 0 1px 1px; }
+  .corners span::after  { bottom:0; right:0; border-width: 0 1px 1px 0; }
+  .star-ornament { text-align: center; margin-bottom: 6px; }
+  .star-ornament svg { width: 36px; height: 36px; animation: spin-slow 20s linear infinite; }
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .shop-name-ar {
+    text-align: center;
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #C9A96E;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 20px rgba(201,169,110,0.3);
+  }
+  .shop-name-en {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: rgba(201,169,110,0.55);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    direction: ltr;
+  }
+  .divider { display: flex; align-items: center; gap: 10px; margin: 14px 0; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,110,0.4), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: #C9A96E; transform: rotate(45deg); flex-shrink: 0; }
+  .location-text {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    direction: ltr;
+    margin-bottom: 20px;
+  }
+  .links-grid { display: flex; flex-direction: column; gap: 10px; }
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    direction: ltr;
+  }
+  .link-btn::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .link-btn:hover { background: rgba(201,169,110,0.06); border-color: rgba(201,169,110,0.35); transform: translateX(4px); }
+  .link-btn:hover::before { opacity: 1; }
+  .btn-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .btn-icon svg { width: 20px; height: 20px; }
+  .btn-text { flex: 1; }
+  .btn-label { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 1px; display: block; }
+  .btn-sub { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+  .btn-arrow { color: rgba(201,169,110,0.4); font-size: 16px; transition: transform 0.3s; }
+  .link-btn:hover .btn-arrow { transform: translateX(4px); color: #C9A96E; }
+  .btn-whatsapp { --accent: rgba(37,211,102,0.15); }
+  .btn-whatsapp .btn-icon { background: linear-gradient(135deg, #25d366, #128c7e); }
+  .btn-maps { --accent: rgba(66,133,244,0.15); }
+  .btn-maps .btn-icon { background: linear-gradient(135deg, #4285f4, #34a853); }
+  .btn-tiktok { --accent: rgba(255,0,80,0.1); }
+  .btn-tiktok .btn-icon { background: linear-gradient(135deg, #010101, #69c9d0); }
+  .btn-instagram { --accent: rgba(225,48,108,0.1); }
+  .btn-instagram .btn-icon { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .bottom-band { height: 5px; background: linear-gradient(90deg, #5a3a10, #C9A96E, #f0d090, #C9A96E, #5a3a10); border-radius: 0 0 4px 4px; }
+  .footer-text { text-align: center; margin-top: 16px; font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(201,169,110,0.3); letter-spacing: 2px; direction: ltr; }
+  .qr-hint { text-align: center; margin-top: 10px; font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 1px; direction: ltr; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-band"></div>
+  <div class="card-inner">
+    <div class="corners"><span></span></div>
+    <div class="star-ornament">
+      <svg viewBox="0 0 36 36" fill="none">
+        <polygon points="18,3 20.5,13 31,13 22.5,19.5 25.5,30 18,23.5 10.5,30 13.5,19.5 5,13 15.5,13" fill="none" stroke="#C9A96E" stroke-width="0.8" opacity="0.7"/>
+        <circle cx="18" cy="18" r="4" fill="none" stroke="#C9A96E" stroke-width="0.8"/>
+        <circle cx="18" cy="18" r="1.5" fill="#C9A96E"/>
+      </svg>
+    </div>
+    <div class="shop-name-ar">محل عصمت الربيع الخيام</div>
+    <div class="shop-name-en">Asmat Al-Rabie Tents</div>
+    <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+    <div class="location-text">Hafar Al-Batin · Kuwait Road</div>
+    <div class="links-grid">
+      <a class="link-btn btn-whatsapp" href="https://wa.me/966551860740" target="_blank">
+        <div class="btn-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM13 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.534 5.857L.073 23.927a.5.5 0 00.607.607l6.07-1.461A11.94 11.94 0 0013 24c6.627 0 12-5.373 12-12S19.627 0 13 0z"/></svg></div>
+        <div class="btn-text"><span class="btn-label">WhatsApp</span><span class="btn-sub">0551860740 · Chat with us</span></div>
+        <span class="btn-arrow">›</span>
+      </a>
+      <a class="link-btn btn-maps" href="https://maps.app.goo.gl/8cMZMu1zQVCKMYpt9" target="_blank">
+        <div class="btn-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div class="btn-text"><span class="btn-label">Google Maps</span><span class="btn-sub">Hafar Al-Batin · Kuwait Road</span></div>
+        <span class="btn-arrow">›</span>
+      </a>
+      <a class="link-btn btn-tiktok" href="https://www.tiktok.com/@hridoy.khan0437" target="_blank">
+        <div class="btn-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></div>
+        <div class="btn-text"><span class="btn-label">TikTok</span><span class="btn-sub">@hridoy.khan0437</span></div>
+        <span class="btn-arrow">›</span>
+      </a>
+      <a class="link-btn btn-instagram" href="https://www.instagram.com/hridoykhan3137" target="_blank">
+        <div class="btn-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+        <div class="btn-text"><span class="btn-label">Instagram</span><span class="btn-sub">@hridoykhan3137</span></div>
+        <span class="btn-arrow">›</span>
+      </a>
+    </div>
+    <div class="divider" style="margin-top:20px; margin-bottom:0;"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+  </div>
+  <div class="bottom-band"></div>
+  <div class="footer-text">HAFAR AL-BATIN · SAUDI ARABIA</div>
+  <div class="qr-hint">Scan QR code to visit this page</div>
+</div>
+</body>
+</html>
